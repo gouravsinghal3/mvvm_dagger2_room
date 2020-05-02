@@ -24,6 +24,5 @@ Architectural Pattern
 Libraries
 * RxJava
 * Dagger2
-* Firestore
 * Room 
 
