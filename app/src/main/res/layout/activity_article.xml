@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:tools="http://schemas.android.com/tools"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+                name="mData"
+                type="com.gourav.app.model.Article" />
+    </data>
+
+    <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/black"
+            android:transitionName="mainImg"
+            >
+
+        <ImageView
+                android:id="@+id/img_article"
+                android:layout_width="fill_parent"
+                android:layout_height="350dp"
+                android:layout_marginEnd="0dp"
+                android:layout_marginStart="0dp"
+                android:contentDescription="@string/app_name"
+                android:fitsSystemWindows="false"
+                android:scaleType="centerCrop"
+                app:layout_constraintDimensionRatio="w,16:9"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:image_url="@{mData.urlToImage}"/>
+
+        <LinearLayout
+                android:orientation="vertical"
+                android:id="@+id/imageview_poster"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:contentDescription="@string/app_name"
+                app:layout_constraintDimensionRatio="w,400:576"
+                app:layout_constraintTop_toBottomOf="@+id/img_article"
+                app:layout_constraintBottom_toBottomOf="@+id/img_article"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/guideline_vertical_start">
+
+            <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="fill_parent"
+                    android:background="@drawable/gradiant"
+                    android:layout_marginTop="20dp"
+                    android:layout_height="wrap_content">
+                <TextView
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="18sp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:fontFamily="@font/roboto_medium"
+                        android:textColor="@color/white"
+                        android:layout_marginTop="10dp"
+                       android:text="@{mData.title}"
+                        app:layout_constraintTop_toTopOf="parent"
+                        android:id="@+id/tvTitle"/>
+                <TextView
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="14sp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_marginTop="10dp"
+                        android:fontFamily="@font/roboto_medium"
+                        android:textColor="@color/gray"
+                        android:text="@{mData.date}"
+                        app:layout_constraintBottom_toBottomOf="@+id/tvTitle"
+                        app:layout_constraintStart_toStartOf="parent"
+                        android:id="@+id/tvDate"/>
+
+
+                <TextView
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="14sp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_marginTop="10dp"
+                        android:fontFamily="@font/roboto_medium"
+                        android:textColor="@color/white"
+                        android:text="@{mData.description}"
+                        app:layout_constraintBottom_toBottomOf="@+id/tvDate"
+                        app:layout_constraintEnd_toStartOf="parent"
+                        android:layout_marginBottom="20dp">
+
+                </TextView>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:textSize="14sp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/roboto_medium"
+                android:textColor="@color/white"
+                android:text="@{mData.content}"
+                app:layout_constraintTop_toBottomOf="@+id/imageview_poster"
+                app:layout_constraintEnd_toStartOf="parent">
+
+        </TextView>
+
+
+        <android.support.constraint.Guideline
+                android:id="@+id/guideline_vertical_start"
+                android:orientation="vertical"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                app:layout_constraintGuide_percent="0.060"
+
+                />
+    </android.support.constraint.ConstraintLayout>
+</layout>
+
+
